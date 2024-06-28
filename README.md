@@ -17,14 +17,14 @@ This is a task management mobile application built with React Native.
 
 ## Local Development
 
-### Prerequisites
+## Prerequisites
 
 - Node.js (v12 or higher)
 - npm or yarn
 - Expo CLI (if using Expo for development)
 - Android Studio / Xcode (for Android / iOS emulation)
 
-### Installation
+## Installation
 
 1. **Clone the repository:**
 
