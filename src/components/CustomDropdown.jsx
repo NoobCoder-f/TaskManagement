@@ -2,8 +2,15 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Modal, FlatList } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-const CustomDropdown = ({ selectedValue, onValueChange, options }) => {
+const CustomDropdown = ({ selectedValue, onValueChange, options, placeholder, placeholderTextColor }) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [currentValue, setCurrentValue] = useState(selectedValue);
+
+  const handleSelect = (value) => {
+    setCurrentValue(value);
+    onValueChange(value);
+    setModalVisible(false);
+  };
 
   return (
     <View>
@@ -11,7 +18,9 @@ const CustomDropdown = ({ selectedValue, onValueChange, options }) => {
         style={styles.dropdownButton}
         onPress={() => setModalVisible(true)}
       >
-        <Text style={styles.dropdownButtonText}>{selectedValue}</Text>
+        <Text style={[styles.dropdownButtonText, !currentValue && { color: placeholderTextColor }]}>
+          {currentValue ? options.find(option => option.value === currentValue)?.label : placeholder}
+        </Text>
       </TouchableOpacity>
       <Modal
         animationType="slide"
@@ -27,10 +36,7 @@ const CustomDropdown = ({ selectedValue, onValueChange, options }) => {
               renderItem={({ item }) => (
                 <TouchableOpacity
                   style={styles.option}
-                  onPress={() => {
-                    onValueChange(item.value);
-                    setModalVisible(false);
-                  }}
+                  onPress={() => handleSelect(item.value)}
                 >
                   <Text style={styles.optionText}>{item.label}</Text>
                 </TouchableOpacity>

@@ -89,6 +89,8 @@ const TaskListScreen = ({ navigation }) => {
         selectedValue={filterStatus}
         onValueChange={handleFilterChange}
         options={statusOptions}
+        placeholder="Filter by status"
+        placeholderTextColor="#888"
       />
       <FlatList
         data={filteredTasks}
