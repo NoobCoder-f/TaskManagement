@@ -15,25 +15,6 @@ This is a task management mobile application built with React Native.
 - Search tasks by title
 - View task details and change task status
 
- ## Project Structure
-
-TaskManagerApp/
-├── android/
-├── ios/
-├── src/
-│ ├── components/
-│ │ ├── CustomButton.js
-│ │ ├── CustomDropdown.js
-│ ├── screens/
-│ │ ├── TaskListScreen.js
-│ │ ├── TaskDetailsScreen.js
-│ │ ├── TaskCreationScreen.js
-│ ├── App.js
-│ ├── index.js
-├── node_modules/
-├── .gitignore
-├── package.json
-├── README.md
 
 ## Local Development
 
